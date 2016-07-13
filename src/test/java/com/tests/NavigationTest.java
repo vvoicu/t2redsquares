@@ -11,7 +11,7 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 
 @RunWith(SerenityRunner.class)
-public class NagivationTest {
+public class NavigationTest {
 	
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
