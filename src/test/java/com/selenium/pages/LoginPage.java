@@ -1,5 +1,8 @@
 package com.selenium.pages;
 
+import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -34,5 +37,17 @@ public class LoginPage extends PageObject{
 	
 	public void click_signin() {
 		signinEvoportal2.click();
+	}
+	
+
+	@FindBy(css = "li[id*='userAvatar']")
+	private WebElement userAvatar;
+	
+	public void verify_login() {
+		try {
+			Assert.assertTrue(userAvatar.isDisplayed());
+		} catch (Exception e) {
+			Assert.fail("Login failed!");
+		}
 	}
 }
