@@ -15,7 +15,7 @@ public class SiteHeaderSteps extends ScenarioSteps {
 	}
 	
 	@Step
-	public void click_vacation() {
-		siteHeaderPage.click_vacation_button();
+	public void click_menuItem(String itemtoClick) {
+		siteHeaderPage.click_header_option(itemtoClick);
 	}
 }

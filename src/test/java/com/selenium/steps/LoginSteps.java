@@ -5,7 +5,7 @@ import com.selenium.pages.LoginPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
-public class LoginSteps1 extends ScenarioSteps {
+public class LoginSteps extends ScenarioSteps {
 
 	private static final long serialVersionUID = 1L;
 	LoginPage loginPage;
