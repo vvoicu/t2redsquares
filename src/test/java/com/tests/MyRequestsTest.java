@@ -20,7 +20,7 @@ public class MyRequestsTest {
 	
 	@Steps LoginSteps loginSteps;
 	@Steps NavigationSteps navigationSteps;
-	@Steps MyRequestsSteps myrequestsSteps;
+	@Steps MyRequestsSteps myRequestsSteps;
 	
 	private String itemtoClick = "VACATION";
 	private String username = "attila.marton";
@@ -34,10 +34,17 @@ public class MyRequestsTest {
 //	}
 	
 	@Test
-	public void myrequestHolidayTest() {
+	public void myRequestHolidayTest() {
 		loginSteps.perform_login(username, password);
-		navigationSteps.click_menuItem(itemtoClick);
-		myrequestsSteps.click_myrequests();
-		myrequestsSteps.loadHolidays();
+		navigationSteps.clickMenuItem(itemtoClick);
+		myRequestsSteps.clickMyRequests();
+		// "Holiday", "Vacation without payment", "special vacation", "sick leave", "maternity leave"
+//		myRequestsSteps.selectTypeFilterValue("Holiday", "maternity leave");
+		// "1 - 5", "6 - 10", "11 - 20", "21 - 50", "51 +"
+//		myRequestsSteps.selectDaysNumberFilterValue("1 - 5", "21 - 50");
+		// "Pending", "Approved", "Rejected", "Withdrawn", "Cancelled"
+//		myRequestsSteps.vacationStatusFilterValue("Pending", "Approved", "Rejected", "Withdrawn", "Cancelled");
+		myRequestsSteps.clickFutureVacation();
+		myRequestsSteps.applyFilters();
 	}
 }

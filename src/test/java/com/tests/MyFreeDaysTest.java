@@ -25,7 +25,7 @@ public class MyFreeDaysTest {
 	@Test
 	public void myFreeDaysTest(){
 		loginSteps.perform_login("paula.klein", "test");
-		navigationSteps.click_menuItem("VACATION");
+		navigationSteps.clickMenuItem("VACATION");
 		myFreeDaysSteps.select_my_free_days_option();
 		myFreeDaysSteps.verify_my_free_days_page_is_loaded();
 	}

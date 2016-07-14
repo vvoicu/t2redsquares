@@ -1,5 +1,7 @@
 package com.selenium.pages;
 
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
@@ -8,64 +10,10 @@ import net.serenitybdd.core.pages.PageObject;
 public class MyRequestsPage extends PageObject{
 
 	@FindBy(css = "a[href*='my-requests']")
-	private WebElement myrequestsButton;
+	private WebElement myRequestsButton;
 	
-	@FindBy(css = "input[id*='vacationTypeALL']")
-	private WebElement vacationtypeallRadioButton;
-	
-	@FindBy(css = "input[id*='HOLIDAYCheckbox']")
-	private WebElement holidayRadioButton;
-	
-	@FindBy(css = "input[id*='WITHOUT_PAYMENTCheckbox']")
-	private WebElement vacationwithoutpaymentRadioButton;
-	
-	@FindBy(css = "input[id*='SPECIAL']")
-	private WebElement specialvacationRadioButton;
-	
-	@FindBy(css = "input[id*='SICK']")
-	private WebElement sickleaveRadioButton;
-	
-	@FindBy(css = "input[value*='MATERNITY']")
-	private WebElement maternityRadioButton;
-
-	@FindBy(css = "input[id*='daysNumberALL']")
-	private WebElement daysnumberallRadioButton;
-	
-	@FindBy(css = "input[id*='TENTH']")
-	private WebElement onefiveRadioButton;
-	
-	@FindBy(css = "input[id*='TENTH']")
-	private WebElement sixtenRadioButton;
-	
-	@FindBy(css = "input[id*='TWENTIETH']")
-	private WebElement eleventwentyRadioButton;
-	
-	@FindBy(css = "input[id*='FIFTIETH']")
-	private WebElement fiftyRadioButton;
-	
-	@FindBy(css = "input[id*='REST']")
-	private WebElement fiftyplusRadioButton;
-	
-	@FindBy(css = "input[id*='vacationStatusALL']")
-	private WebElement vacationstatusallRadioButton;
-
-	@FindBy(css = "input[value*='PENDING']")
-	private WebElement pendingRadioButton;
-	
-	@FindBy(css = "input[value*='APPROVED']")
-	private WebElement approvedRadioButton;
-	
-	@FindBy(css = "input[value*='REJECTED']")
-	private WebElement rejectedRadioButton;
-	
-	@FindBy(css = "input[value*='WITHDRAWN']")
-	private WebElement withdrawnRadioButton;
-	
-	@FindBy(css = "input[value*='CANCELLED']")
-	private WebElement cancelledRadioButton;
-	
-	@FindBy(css = "input[id*='futureVacation']")
-	private WebElement futurevacationRadioButton;
+	@FindBy(css = "span[class='aui-field-element aui-field-label-right'] input[id*='VacationsCheckbox']")
+	private WebElement futureVacationRadioButton;
 	
 	@FindBy(css = "a[href*='startDate'")
 	private WebElement startdateButton;
@@ -85,7 +33,7 @@ public class MyRequestsPage extends PageObject{
 	@FindBy(css = "a[href*='status'")
 	private WebElement statusButton;
 	
-	@FindBy(css = "input[value*='Apply'")
+	@FindBy(css = "input[class='aui-button-input']")
 	private WebElement applyButton;
 	
 	@FindBy(css = "span[class*='first-link'")
@@ -100,12 +48,79 @@ public class MyRequestsPage extends PageObject{
 	@FindBy(css = "span[class*='last-link'")
 	private WebElement lastpageButton;
 	
-	public void loadmyRequests() {
-		myrequestsButton.click();
+	@FindBy(css=".filter-content div[class='aui-column column-three aui-column-first ']")
+	private WebElement vacationTypeContainer;
+	private String filterTypeCssSelector="span[class*='aui-field-content']";
+	private String filterTypeCheckboxCss="input[type='checkbox']";
+	
+	public void selectTypeFilterValue(String... filterValues){
+		for(String filterValue:filterValues){
+			boolean isFilterValueFound=false;
+			for(WebElement filterItem: vacationTypeContainer.findElements(By.cssSelector(filterTypeCssSelector))){
+				if(filterItem.getText().toLowerCase().contentEquals(filterValue.toLowerCase())){
+					isFilterValueFound=true;
+					if(!filterItem.findElement(By.cssSelector(filterTypeCheckboxCss)).isSelected()){
+						filterItem.findElement(By.cssSelector(filterTypeCheckboxCss)).click();
+					}
+				}
+			}
+		Assert.assertTrue(filterValues +"filter option was not found", isFilterValueFound);
+		}
 	}
 	
-	public void loadHolidays() {
-		vacationwithoutpaymentRadioButton.click();
+	@FindBy(css=".filter-content div[class='aui-column column-three column-center ']")
+	private WebElement daysNumberContainer; 
+	private String filterElementsCssSelector="span[class*='aui-field-content']";
+	private String filterCheckboxCssSelector="input[type='checkbox']";
+	 
+	 
+	public void selectDaysNumberFilterValue(String... filterValues){
+		for(String filterValue:filterValues){
+		boolean isFilterValueFound=false;
+		for(WebElement filterItem: daysNumberContainer.findElements(By.cssSelector(filterElementsCssSelector))){
+			if(filterItem.getText().toLowerCase().contentEquals(filterValue.toLowerCase())){
+				isFilterValueFound=true;
+				if(!filterItem.findElement(By.cssSelector(filterCheckboxCssSelector)).isSelected()){
+					filterItem.findElement(By.cssSelector(filterCheckboxCssSelector)).click();
+				}
+				break;
+			}
+		}
+		Assert.assertTrue(filterValues +"filter option was not found", isFilterValueFound);
+		}
+	}
+	
+	@FindBy(css=".filter-content div[class='aui-column-content aui-column-content-last column-three-content column-center-content ']")
+	private WebElement vacationStatusContainer; 
+	private String filterVacationCssSelector="span[class*='aui-field-content']";
+	private String filterVacationCheckboxCssSelector="input[type='checkbox']";
+	 
+	 
+	public void vacationStatusFilterValue(String... filterValues){
+		for(String filterValue:filterValues){
+		boolean isFilterValueFound=false;
+		for(WebElement filterItem: vacationStatusContainer.findElements(By.cssSelector(filterVacationCssSelector))){
+			if(filterItem.getText().toLowerCase().contentEquals(filterValue.toLowerCase())){
+				isFilterValueFound=true;
+				if(!filterItem.findElement(By.cssSelector(filterVacationCheckboxCssSelector)).isSelected()){
+					filterItem.findElement(By.cssSelector(filterVacationCheckboxCssSelector)).click();
+				}
+				break;
+			}
+		}
+		Assert.assertTrue(filterValues +"filter option was not found", isFilterValueFound);
+		}
+	}
+	 
+	public void loadmyRequests() {
+		myRequestsButton.click();
+	}
+	
+	public void clickFutureVacation(){
+		futureVacationRadioButton.click();
+	}
+	
+	public void applyFilters(){
 		applyButton.click();
 	}
 }
