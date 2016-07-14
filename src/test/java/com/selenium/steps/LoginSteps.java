@@ -48,5 +48,4 @@ public class LoginSteps extends ScenarioSteps {
 	public void verify_login() {
 		loginPage.verifyLogin();
 	}
-
 }

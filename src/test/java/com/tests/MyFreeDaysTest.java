@@ -25,10 +25,11 @@ public class MyFreeDaysTest {
 	@Test
 	public void myFreeDaysTest(){
 		loginSteps.perform_login("paula.klein", "test");
-		navigationSteps.click_menuItem("VACATION");
+		navigationSteps.clickMenuItem("VACATION");
 		myFreeDaysSteps.selectMyFreeDaysOption();
 //		myFreeDaysSteps.verifyMyFreeDaysPageIsLoaded();
 		myFreeDaysSteps.calculateTotalAvailableFreeDays();
 		myFreeDaysSteps.verifyDateCalculationDays();
+
 	}
 }

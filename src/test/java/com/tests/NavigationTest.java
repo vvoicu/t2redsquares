@@ -32,6 +32,6 @@ public class NavigationTest {
 		loginSteps.enter_username(username);
 		loginSteps.enter_password(password);
 		loginSteps.click_signin_button();*/
-		navigationSteps.click_menuItem(itemtoSearch);
+		navigationSteps.clickMenuItem(itemtoSearch);
 	}
 }

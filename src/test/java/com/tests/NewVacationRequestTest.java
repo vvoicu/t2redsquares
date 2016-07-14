@@ -33,7 +33,7 @@ public class NewVacationRequestTest  {
 	@Test
 	public void clickOnNewVacationRequestTest(){
 		loginSteps.perform_login(username, password);
-		navigationSteps.click_menuItem(itemtoSearch);
+		navigationSteps.clickMenuItem(itemtoSearch);
 		newVacationRequestSteps.clickOnNewVacationRequest();
 		
 	}
