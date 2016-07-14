@@ -11,7 +11,7 @@ import net.thucydides.core.annotations.DefaultUrl;
 @DefaultUrl("http://172.22.4.88:9090/home")
 public class LoginPage extends PageObject{
 
-	@FindBy(css="#sign-in+")
+	@FindBy(css="#sign-in")
 	private WebElementFacade signinPageLoad;
 	
 	@FindBy(css="input[id*='login']")
