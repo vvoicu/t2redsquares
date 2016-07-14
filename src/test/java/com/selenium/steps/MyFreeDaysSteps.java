@@ -22,7 +22,7 @@ public class MyFreeDaysSteps extends ScenarioSteps {
 
 	@Step
 	public void calculateTotalAvailableFreeDays() {
-		myFreeDaysPage.calculateTotalAvailableFreeDays();
+		myFreeDaysPage.calculateTotalFreeDays();
 	}
 
 	@Step

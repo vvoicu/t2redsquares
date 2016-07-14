@@ -67,7 +67,7 @@ public class MyFreeDaysPage extends PageObject {
 		return null;
 	}
 
-	public Integer calculateTotalAvailableFreeDays() {
+	public Integer calculateTotalFreeDays() {
 		int sum = 0;
 		List<WebElement> days = daysContainer
 				.findElements(By.cssSelector("div.active table.my-free-days-table tr td:nth-child(2)"));
@@ -80,7 +80,7 @@ public class MyFreeDaysPage extends PageObject {
 	}
 
 	public void verifyDateCalculationDays() {
-		int freeDays = calculateTotalAvailableFreeDays();
+		int freeDays = calculateTotalFreeDays();
 		int vacationDays = Integer.parseInt(vacationDaysTakenThisYear.getText());
 		int availableDays = Integer.parseInt(totalAvailableFreeDays.getText());
 		System.out.println("available days: "+availableDays+" = free days "+freeDays+"- vacation days "+vacationDays);
