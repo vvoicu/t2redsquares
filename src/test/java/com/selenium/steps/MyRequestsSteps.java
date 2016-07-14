@@ -14,4 +14,9 @@ public class MyRequestsSteps extends ScenarioSteps{
 	public void click_myrequests() {
 		myrequestsPage.loadmyRequests();
 	}
+	
+	@Step
+	public void check_all_items(){
+		
+	}
 }
