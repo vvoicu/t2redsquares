@@ -23,12 +23,12 @@ public class LoginTest {
 	
 	@Test
 	public void loginTest() {
-		loginSteps.open_login_page();
+		/*loginSteps.open_login_page();
 		loginSteps.load_signin_page();
 		loginSteps.enter_username(username);
 		loginSteps.enter_password(password);
-		loginSteps.click_signin_button();
-		/*loginSteps.perform_login("attila.marton", "test" );*/
+		loginSteps.click_signin_button();*/
+		loginSteps.perform_login(username, password);
 		loginSteps.verify_login();
 	}
 }

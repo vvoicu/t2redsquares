@@ -10,7 +10,7 @@ public class LoginSteps extends ScenarioSteps {
 	private static final long serialVersionUID = 1L;
 	LoginPage loginPage;
 
-	@Step
+	/*@Step
     public void open_login_page() {
         loginPage.open();
     }
@@ -33,16 +33,17 @@ public class LoginSteps extends ScenarioSteps {
 	@Step
 	public void click_signin_button() {
 		loginPage.clickSigninButton();
-	}
+	} */
 	
-	/*@Step
+	@Step
 	public void perform_login(String username, String password){
+		loginPage.open();
 		loginPage.loadSigninPage();
 		loginPage.enterUsername(username);
 		loginPage.enterPassword(password);
 		loginPage.clickSigninButton();
 	}
-	*/
+	
 	@Step
 	public void verify_login() {
 		loginPage.verifyLogin();
