@@ -12,11 +12,6 @@ public class NavigationSteps extends ScenarioSteps {
 	LoginPage loginPage;
 	
 	@Step
-	public void verify_login() {
-		loginPage.verify_login();
-	}
-	
-	@Step
 	public void click_menuItem(String itemtoClick) {
 		navigationPage.click_header_option(itemtoClick);
 	}

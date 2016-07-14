@@ -11,39 +11,39 @@ import net.thucydides.core.annotations.DefaultUrl;
 @DefaultUrl("http://172.22.4.88:9090/home")
 public class LoginPage extends PageObject{
 
-	@FindBy(css="a[href*='login']")
-	private WebElementFacade signinEvoportal;
-	
-	public void details_show() {
-		signinEvoportal.click();
-	}
+	@FindBy(css="#sign-in")
+	private WebElementFacade signinPageLoad;
 	
 	@FindBy(css="input[id*='login']")
-	private WebElementFacade userEvoportal;
+	private WebElementFacade usernameInput;
 	
 	@FindBy(css="input[id*='password']")
-	private WebElementFacade passEvoportal;	
-	
-	public void logare_nume(String userName) {
-		userEvoportal.type(userName);
-	}
-	
-	public void logare_pass(String passWord) {
-		passEvoportal.type(passWord);
-	}
+	private WebElementFacade passwordInput;	
 	
 	@FindBy(css = "input[value='Sign In']")
-	private WebElementFacade signinEvoportal2;
-	
-	public void click_signin() {
-		signinEvoportal2.click();
-	}
-	
+	private WebElementFacade signinButton;
 
 	@FindBy(css = "li[id*='userAvatar']")
 	private WebElement userAvatar;
 	
-	public void verify_login() {
+	public void loadSigninPage() {
+		signinPageLoad.click();
+	}
+	
+	public void enterUsername(String username) {
+		usernameInput.type(username);
+	}
+	
+	public void enterPassword(String password) {
+		passwordInput.type(password);
+	}
+	
+	public void clickSigninButton() {
+		signinButton.click();
+	}
+	
+	
+	public void verifyLogin() {
 		try {
 			Assert.assertTrue(userAvatar.isDisplayed());
 		} catch (Exception e) {

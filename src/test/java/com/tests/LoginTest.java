@@ -5,7 +5,6 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.selenium.steps.LoginSteps;
-import com.selenium.steps.NavigationSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
@@ -18,17 +17,18 @@ public class LoginTest {
 	public WebDriver webdriver;
 	
 	@Steps LoginSteps loginSteps;
-	@Steps NavigationSteps siteheaderSteps;
 	
-	private String name = "attila.marton";
+	private String username = "attila.marton";
 	private String password = "test";
 	
 	@Test
-	public void logging_in() {
-		loginSteps.is_the_home_page();
-		loginSteps.first_click();
-		loginSteps.insert_name(name);
-		loginSteps.insert_pass(password);
-		loginSteps.lets_go();
+	public void loginTest() {
+		loginSteps.open_login_page();
+		loginSteps.load_signin_page();
+		loginSteps.enter_username(username);
+		loginSteps.enter_password(password);
+		loginSteps.click_signin_button();
+		/*loginSteps.perform_login("attila.marton", "test" );*/
+		loginSteps.verify_login();
 	}
 }

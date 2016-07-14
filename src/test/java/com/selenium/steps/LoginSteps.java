@@ -11,28 +11,41 @@ public class LoginSteps extends ScenarioSteps {
 	LoginPage loginPage;
 
 	@Step
-	public void first_click() {
-		loginPage.details_show();
+    public void open_login_page() {
+        loginPage.open();
+    }
+	
+	@Step
+	public void load_signin_page() {
+		loginPage.loadSigninPage();
 	}
 
 	@Step
-	public void insert_name(String nume) {
-		loginPage.logare_nume(nume);
+	public void enter_username(String username) {
+		loginPage.enterUsername(username);
 	}
 
 	@Step
-	public void insert_pass(String parola) {
-		loginPage.logare_pass(parola);
+	public void enter_password(String password) {
+		loginPage.enterPassword(password);
 	}
 
 	@Step
-	public void lets_go() {
-		loginPage.click_signin();
+	public void click_signin_button() {
+		loginPage.clickSigninButton();
 	}
-
+	
+	/*@Step
+	public void perform_login(String username, String password){
+		loginPage.loadSigninPage();
+		loginPage.enterUsername(username);
+		loginPage.enterPassword(password);
+		loginPage.clickSigninButton();
+	}
+	*/
 	@Step
-	public void is_the_home_page() {
-		loginPage.open();
+	public void verify_login() {
+		loginPage.verifyLogin();
 	}
 
 }
