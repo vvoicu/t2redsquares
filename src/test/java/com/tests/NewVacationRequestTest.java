@@ -29,14 +29,25 @@ public class NewVacationRequestTest  {
 	private String itemtoSearch = "VACATION";
 	private String username = "attila.marton";
 	private String password = "test";
+	private String myMonth = "Jul";
+	private String myYear = "2016";
+	private String myStartDay = "18";
+	private String myEndDay = "18";
 	
 	@Test
 	public void clickOnNewVacationRequestTest(){
 		loginSteps.perform_login(username, password);
 		navigationSteps.clickMenuItem(itemtoSearch);
 		newVacationRequestSteps.clickOnNewVacationRequest();
+		newVacationRequestSteps.clickOnStartDate();
+//		newVacationRequestSteps.clickYear();
+//		newVacationRequestSteps.seletYear(myYear);
+//		newVacationRequestSteps.selectMonth(myMonth);
+//		newVacationRequestSteps.selectDay(myDay);
+		newVacationRequestSteps.selectDate(myYear, myMonth, myStartDay);
+		newVacationRequestSteps.clickOnEndDate();
+		newVacationRequestSteps.selectDate(myYear, myMonth, myEndDay);
 		
 	}
 	
-
 }
