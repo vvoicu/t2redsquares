@@ -10,7 +10,7 @@ public class NavigationSteps extends ScenarioSteps {
 	NavigationPage navigationPage;
 	
 	@Step
-	public void click_menuItem(String itemtoClick) {
-		navigationPage.click_header_option(itemtoClick);
+	public void clickMenuItem(String itemtoClick) {
+		navigationPage.clickHeaderOption(itemtoClick);
 	}
 }

@@ -15,7 +15,7 @@ public class NavigationPage extends PageObject {
 	@FindBy(css = "ul.main-menu li")
 	private List<WebElement> menuHeaderItems;
 
-	public void click_header_option(String menuItem) {
+	public void clickHeaderOption(String menuItem) {
 		element(menuHeaderContainer).waitUntilVisible();
 		for (WebElement element : menuHeaderItems) {
 			if (element.getText().contentEquals(menuItem)){

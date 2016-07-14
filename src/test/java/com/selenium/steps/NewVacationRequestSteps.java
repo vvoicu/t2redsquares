@@ -7,7 +7,7 @@ import net.thucydides.core.annotations.StepGroup;
 import net.thucydides.core.steps.ScenarioSteps;
 
 public class NewVacationRequestSteps extends ScenarioSteps {
-	
+	private static final long serialVersionUID = 1L;
 	NewVacationRequestPage newVacationRequestPage;
 	
 	@Step

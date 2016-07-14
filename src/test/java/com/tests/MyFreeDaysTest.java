@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.selenium.steps.LoginSteps;
+import com.selenium.steps.MyFreeDaysSteps;
 import com.selenium.steps.NavigationSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
@@ -12,26 +13,23 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 
 @RunWith(SerenityRunner.class)
-public class NavigationTest {
+public class MyFreeDaysTest {
 	
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
-		
+	
 	@Steps LoginSteps loginSteps;
 	@Steps NavigationSteps navigationSteps;
-	
-	private String itemtoSearch = "BENEFITS";
-	private String username = "attila.marton";
-	private String password = "test";
+	@Steps MyFreeDaysSteps myFreeDaysSteps;
 	
 	@Test
-	public void navigation(){
-		loginSteps.perform_login(username, password);
-		/*loginSteps.open_login_page();
-		loginSteps.load_signin_page();
-		loginSteps.enter_username(username);
-		loginSteps.enter_password(password);
-		loginSteps.click_signin_button();*/
-		navigationSteps.clickMenuItem(itemtoSearch);
+	public void myFreeDaysTest(){
+		loginSteps.perform_login("paula.klein", "test");
+		navigationSteps.clickMenuItem("VACATION");
+		myFreeDaysSteps.selectMyFreeDaysOption();
+//		myFreeDaysSteps.verifyMyFreeDaysPageIsLoaded();
+		myFreeDaysSteps.calculateTotalAvailableFreeDays();
+		myFreeDaysSteps.verifyDateCalculationDays();
+
 	}
 }
