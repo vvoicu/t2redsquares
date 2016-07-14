@@ -42,7 +42,6 @@ public class LoginPage extends PageObject{
 		signinButton.click();
 	}
 	
-	
 	public void verifyLogin() {
 		try {
 			Assert.assertTrue(userAvatar.isDisplayed());
