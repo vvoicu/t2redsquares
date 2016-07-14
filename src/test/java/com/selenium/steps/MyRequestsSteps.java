@@ -39,4 +39,9 @@ public class MyRequestsSteps extends ScenarioSteps{
 	public void applyFilters(){
 		myRequestsPage.applyFilters();
 	}
+	
+	@Step
+	public void vacationTableFilterValue(String filterValue, String sortingMode){
+		myRequestsPage.vacationTableFilterValue(filterValue, sortingMode);
+	}
 }
