@@ -82,7 +82,6 @@ public class MyRequestsPage extends PageObject{
 	@FindBy(css = "a[href*='lastUpdate'")
 	private WebElement lastupdateButton;
 	
-	
 	@FindBy(css = "a[href*='status'")
 	private WebElement statusButton;
 	
