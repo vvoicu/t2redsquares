@@ -13,22 +13,21 @@ public class MyRequestsPage extends PageObject{
 	@FindBy(css = "input[id*='vacationTypeALL']")
 	private WebElement vacationtypeallRadioButton;
 	
-	@FindBy(css = "input[value*='HOLIDAY']")
+	@FindBy(css = "input[id*='HOLIDAYCheckbox']")
 	private WebElement holidayRadioButton;
 	
-	@FindBy(css = "input[value*='WITHOUT_PAYMENT']")
+	@FindBy(css = "input[id*='WITHOUT_PAYMENTCheckbox']")
 	private WebElement vacationwithoutpaymentRadioButton;
 	
-	@FindBy(css = "input[value*='SPECIAL']")
+	@FindBy(css = "input[id*='SPECIAL']")
 	private WebElement specialvacationRadioButton;
 	
-	@FindBy(css = "input[value*='SICK']")
+	@FindBy(css = "input[id*='SICK']")
 	private WebElement sickleaveRadioButton;
 	
 	@FindBy(css = "input[value*='MATERNITY']")
 	private WebElement maternityRadioButton;
 
-	
 	@FindBy(css = "input[id*='daysNumberALL']")
 	private WebElement daysnumberallRadioButton;
 	
@@ -106,7 +105,8 @@ public class MyRequestsPage extends PageObject{
 		myrequestsButton.click();
 	}
 	
-	public void checkelementsMyRequests() {
-		
+	public void loadHolidays() {
+		vacationwithoutpaymentRadioButton.click();
+		applyButton.click();
 	}
 }

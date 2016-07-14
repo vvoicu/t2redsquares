@@ -16,7 +16,7 @@ public class MyRequestsSteps extends ScenarioSteps{
 	}
 	
 	@Step
-	public void check_all_items(){
-		
+	public void loadHolidays(){
+		myrequestsPage.loadHolidays();
 	}
 }

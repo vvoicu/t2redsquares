@@ -26,12 +26,18 @@ public class MyRequestsTest {
 	private String username = "attila.marton";
 	private String password = "test";
 	
+//	@Test
+//	public void myrequestTest() {
+//		loginSteps.perform_login(username, password);
+//		navigationSteps.click_menuItem(itemtoClick);
+//		myrequestsSteps.click_myrequests();
+//	}
+	
 	@Test
-	public void myrequestTest() {
+	public void myrequestHolidayTest() {
 		loginSteps.perform_login(username, password);
 		navigationSteps.click_menuItem(itemtoClick);
 		myrequestsSteps.click_myrequests();
+		myrequestsSteps.loadHolidays();
 	}
-	
-	
 }
