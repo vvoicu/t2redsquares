@@ -1,12 +1,14 @@
 package com.selenium.pages;
 
-import net.serenitybdd.core.annotations.findby.FindBy;
-import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.WebElement;
 
-public class MyRequestsPage {
+import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.PageObject;
+
+public class MyRequestsPage extends PageObject{
 
 	@FindBy(css = "a[href*='my-requests']")
-	private WebElementFacade myrequestsButton;
+	private WebElement myrequestsButton;
 	
 	public void loadmyRequests() {
 		myrequestsButton.click();
