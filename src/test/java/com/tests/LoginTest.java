@@ -7,11 +7,11 @@ import org.openqa.selenium.WebDriver;
 import com.selenium.steps.LoginSteps;
 
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
-import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 
 @RunWith(SerenityParameterizedRunner.class)
+//@UseTestDataFrom(value = Constans.CSV_FILE_PATH +"Test00_LogIn.csv")
 public class LoginTest {
 
 	@Managed(uniqueSession = true)
