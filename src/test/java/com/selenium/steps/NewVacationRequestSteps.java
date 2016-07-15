@@ -36,7 +36,7 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 	public void selectDay(String dayName){
 		newVacationRequestPage.selectDay(dayName);
 	}
-	
+	@Step
 	public void clickOnEndDate(){
 		newVacationRequestPage.clickOnEndDate();
 	}
@@ -46,8 +46,15 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 		clickYear();
 		seletYear(myYear);
 		selectMonth(myMonth);
-		selectDay(myDay);
-		
-		
+		selectDay(myDay);	
 	}
+	@Step
+	public void selectVacationType(String vacationType){
+		newVacationRequestPage.selectVacationType(vacationType);
+	}
+	@Step
+	public void selectSpecial(String option){
+		newVacationRequestPage.selectSpecial(option);
+	}
+	
 }

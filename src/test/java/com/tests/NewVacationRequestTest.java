@@ -32,21 +32,21 @@ public class NewVacationRequestTest  {
 	private String myMonth = "Jul";
 	private String myYear = "2016";
 	private String myStartDay = "18";
-	private String myEndDay = "18";
+	private String myEndDay = "19";
+	private String myVacationType = "Holiday";
+
 	
 	@Test
 	public void clickOnNewVacationRequestTest(){
 		loginSteps.perform_login(username, password);
 		navigationSteps.clickMenuItem(itemtoSearch);
 		newVacationRequestSteps.clickOnNewVacationRequest();
-		newVacationRequestSteps.clickOnStartDate();
-//		newVacationRequestSteps.clickYear();
-//		newVacationRequestSteps.seletYear(myYear);
-//		newVacationRequestSteps.selectMonth(myMonth);
-//		newVacationRequestSteps.selectDay(myDay);
-		newVacationRequestSteps.selectDate(myYear, myMonth, myStartDay);
-		newVacationRequestSteps.clickOnEndDate();
-		newVacationRequestSteps.selectDate(myYear, myMonth, myEndDay);
+//		newVacationRequestSteps.clickOnStartDate();
+//		newVacationRequestSteps.selectDate(myYear, myMonth, myStartDay);
+//		newVacationRequestSteps.clickOnEndDate();
+//		newVacationRequestSteps.selectDate(myYear, myMonth, myEndDay);
+		newVacationRequestSteps.selectVacationType(myVacationType);
+		newVacationRequestSteps.selectSpecial("Funeral");
 		
 	}
 	
