@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import com.selenium.steps.LoginSteps;
 import com.selenium.steps.MyRequestsSteps;
 import com.selenium.steps.NavigationSteps;
+import com.tools.models.Constants;
 
 import junit.framework.TestCase;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
@@ -16,9 +17,9 @@ import net.thucydides.core.annotations.Title;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 
 @RunWith(SerenityParameterizedRunner.class)
-@UseTestDataFrom (value = "src/test/resources/tests/csv/Test01_MyRequests.csv",separator=',')
+@UseTestDataFrom (value = Constants.CSV_FILE_PATH + "Test01_MyRequests.csv",separator=Constants.CSV_SEPARATOR)
 public class MyRequestsDTTTest extends TestCase {
-
+	
 	@Managed(uniqueSession = false)
 	public WebDriver webdriver;
 	
