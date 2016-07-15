@@ -27,7 +27,7 @@ public class NewVacationRequestTest  {
 	NavigationSteps navigationSteps;
 	
 	private String itemtoSearch = "VACATION";
-	private String username = "attila.marton";
+	private String username = "marian.mihai";
 	private String password = "test";
 	private String myMonth = "Jul";
 	private String myYear = "2016";
@@ -47,6 +47,7 @@ public class NewVacationRequestTest  {
 //		newVacationRequestSteps.selectDate(myYear, myMonth, myEndDay);
 		newVacationRequestSteps.selectVacationType(myVacationType);
 		newVacationRequestSteps.selectSpecial("Funeral");
+		newVacationRequestSteps.clickOnSaveButton();
 		
 	}
 	
