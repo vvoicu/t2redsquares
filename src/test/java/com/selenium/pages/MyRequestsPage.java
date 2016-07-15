@@ -1,5 +1,7 @@
 package com.selenium.pages;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -15,38 +17,12 @@ public class MyRequestsPage extends PageObject{
 	@FindBy(css = "span[class='aui-field-element aui-field-label-right'] input[id*='VacationsCheckbox']")
 	private WebElement futureVacationRadioButton;
 	
-	@FindBy(css = "a[href*='startDate'")
-	private WebElement startdateButton;
-	
-	@FindBy(css = "a[href*='endDate'")
-	private WebElement enddateButton;
-	
-	@FindBy(css = "a[href*='daysNr'")
-	private WebElement daysnrButton;
-	
-	@FindBy(css = "a[href*='type'")
-	private WebElement typeButton;
-	
-	@FindBy(css = "a[href*='lastUpdate'")
-	private WebElement lastupdateButton;
-	
-	@FindBy(css = "a[href*='status'")
-	private WebElement statusButton;
-	
 	@FindBy(css = "input[class='aui-button-input']")
 	private WebElement applyButton;
-	
-	@FindBy(css = "span[class*='first-link'")
-	private WebElement firstpageButton;
-	
-	@FindBy(css = "span[class*='prev-link'")
-	private WebElement previouspageButton;
 
-	@FindBy(css = "span[class*='next-link'")
-	private WebElement nextpageButton;
-	
-	@FindBy(css = "span[class*='last-link'")
-	private WebElement lastpageButton;
+	public void loadmyRequests() {
+		myRequestsButton.click();
+	}
 	
 	@FindBy(css=".filter-content div[class='aui-column column-three aui-column-first ']")
 	private WebElement vacationTypeContainer;
@@ -112,10 +88,6 @@ public class MyRequestsPage extends PageObject{
 		}
 	}
 	 
-	public void loadmyRequests() {
-		myRequestsButton.click();
-	}
-	
 	public void clickFutureVacation(){
 		futureVacationRadioButton.click();
 	}
@@ -123,4 +95,39 @@ public class MyRequestsPage extends PageObject{
 	public void applyFilters(){
 		applyButton.click();
 	}
+	
+	@FindBy(css="table[class='taglib-search-iterator'] tr[class='portlet-section-header results-header']")
+	private WebElement tableContainer;
+	
+	@FindBy(css="table[class='taglib-search-iterator'] tr[class='portlet-section-header results-header'] th")
+	private List<WebElement> tableHeaderItems;
+	
+	public void vacationTableFilterValue(String filterValue,String sortingMode){
+		element(tableContainer).waitUntilVisible();
+		for (WebElement element:tableHeaderItems) {
+			if (element.getText().contentEquals(filterValue)){
+				String elementState = element.getAttribute("class");
+				if (elementState.contains("asc") || elementState.contains("desc")) {
+					if (elementState.contains("asc") && sortingMode=="desc") {
+						element.click();
+					}
+					else {
+						if ((elementState.contains("desc") && sortingMode=="asc")) {
+							element.click();
+						}
+					}
+				}
+				else {
+					if (sortingMode=="asc") {
+						element.click();
+					}
+					else {
+						element.click();
+						element.click();
+					}
+				}
+			}
+			break;
+			}
+		}
 }

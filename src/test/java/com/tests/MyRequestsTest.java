@@ -38,13 +38,15 @@ public class MyRequestsTest {
 		loginSteps.perform_login(username, password);
 		navigationSteps.clickMenuItem(itemtoClick);
 		myRequestsSteps.clickMyRequests();
-		// "Holiday", "Vacation without payment", "special vacation", "sick leave", "maternity leave"
+// 		"Holiday", "Vacation without payment", "special vacation", "sick leave", "maternity leave"
 //		myRequestsSteps.selectTypeFilterValue("Holiday", "maternity leave");
-		// "1 - 5", "6 - 10", "11 - 20", "21 - 50", "51 +"
+// 		"1 - 5", "6 - 10", "11 - 20", "21 - 50", "51 +"
 //		myRequestsSteps.selectDaysNumberFilterValue("1 - 5", "21 - 50");
-		// "Pending", "Approved", "Rejected", "Withdrawn", "Cancelled"
+// 		"Pending", "Approved", "Rejected", "Withdrawn", "Cancelled"
 //		myRequestsSteps.vacationStatusFilterValue("Pending", "Approved", "Rejected", "Withdrawn", "Cancelled");
 		myRequestsSteps.clickFutureVacation();
 		myRequestsSteps.applyFilters();
+//		"Start Date" "End Date" "Days Number" "Type" "Last Updated By" "Status" / "asc" or "desc" mode
+		myRequestsSteps.vacationTableFilterValue("Start Date","desc");
 	}
 }
