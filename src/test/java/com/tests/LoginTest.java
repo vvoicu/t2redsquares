@@ -12,7 +12,6 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 
 @RunWith(SerenityParameterizedRunner.class)
-@UseTestDataFrom()
 public class LoginTest {
 
 	@Managed(uniqueSession = true)
