@@ -5,16 +5,13 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.selenium.steps.LoginSteps;
-import com.tools.models.Constans;
 
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
-import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
-import net.thucydides.junit.annotations.UseTestDataFrom;
 
 @RunWith(SerenityParameterizedRunner.class)
-@UseTestDataFrom(value = Constans.CSV_FILE_PATH +"Test00_LogIn.csv")
+//@UseTestDataFrom(value = Constans.CSV_FILE_PATH +"Test00_LogIn.csv")
 public class LoginTest {
 
 	@Managed(uniqueSession = true)
