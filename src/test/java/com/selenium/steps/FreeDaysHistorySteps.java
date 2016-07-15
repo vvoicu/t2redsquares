@@ -20,4 +20,25 @@ public class FreeDaysHistorySteps extends ScenarioSteps {
 		freeDaysHistoryPage.freeDaysHistoryPageLoad();
 		
 	}
+	
+	@Step
+	public void selectTypeFilterValue(String...filterValues){
+		freeDaysHistoryPage.selectTypeFilterValue(filterValues);
+	} 
+	
+	@Step
+	public void selectTypeFilterValue(String...filterValues){
+		freeDaysHistoryPage.selectTypeFilterValue(filterValues);
+	}
+	
+	@Step
+	public void selectStatusFilterValue(String...filterValues){
+		freeDaysHistoryPage.selectStatusFilterValue(filterValues);
+	} 
+	
+	@Step
+	public void applyFilters(){
+		freeDaysHistoryPage.applyFilters();
+	}
+	
 }
