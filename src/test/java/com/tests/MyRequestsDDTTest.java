@@ -18,7 +18,7 @@ import net.thucydides.junit.annotations.UseTestDataFrom;
 
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom (value = Constants.CSV_FILE_PATH + "Test01_MyRequests.csv",separator=Constants.CSV_SEPARATOR)
-public class MyRequestsDTTTest extends TestCase {
+public class MyRequestsDDTTest extends TestCase {
 	
 	@Managed(uniqueSession = false)
 	public WebDriver webdriver;
