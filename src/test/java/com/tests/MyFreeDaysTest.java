@@ -22,10 +22,14 @@ public class MyFreeDaysTest {
 	@Steps NavigationSteps navigationSteps;
 	@Steps MyFreeDaysSteps myFreeDaysSteps;
 	
+	private String username = "attila.marton";
+	private String password = "test";
+	private String itemtoSearch = "VACATION";
+	
 	@Test
 	public void myFreeDaysTest(){
-		loginSteps.perform_login("paula.klein", "test");
-		navigationSteps.clickMenuItem("VACATION");
+		loginSteps.perform_login(username, password);
+		navigationSteps.clickMenuItem(itemtoSearch);
 		myFreeDaysSteps.selectMyFreeDaysOption();
 //		myFreeDaysSteps.verifyMyFreeDaysPageIsLoaded();
 		myFreeDaysSteps.calculateTotalAvailableFreeDays();
