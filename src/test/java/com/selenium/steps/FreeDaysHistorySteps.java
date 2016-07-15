@@ -27,7 +27,7 @@ public class FreeDaysHistorySteps extends ScenarioSteps {
 	} 
 	
 	@Step
-	public void selectTypeFilterValue(String...filterValues){
+	public void selectDaysNumberFilterValue(String...filterValues){
 		freeDaysHistoryPage.selectTypeFilterValue(filterValues);
 	}
 	
