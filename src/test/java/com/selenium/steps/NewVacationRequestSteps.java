@@ -57,4 +57,7 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 		newVacationRequestPage.selectSpecial(option);
 	}
 	
+   public void clickOnSaveButton(){
+	   newVacationRequestPage.clickOnSaveButton();
+   }
 }

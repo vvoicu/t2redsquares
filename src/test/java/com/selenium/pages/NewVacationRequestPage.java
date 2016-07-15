@@ -26,6 +26,9 @@ public class NewVacationRequestPage extends PageObject {
 	
 	@FindBy(css = "select#_evovacation_WAR_EvoVacationportlet_specialReason")
 	private WebElementFacade specialVacationSelector;
+	
+	@FindBy(css ="span #_evovacation_WAR_EvoVacationportlet_saveButton")
+	private WebElement saveButton;
 
 	public void clickNewVacationRequest() {
 		newVacationRequest.click();
@@ -103,5 +106,10 @@ public class NewVacationRequestPage extends PageObject {
 		boolean present = specialVacationSelector.isEnabled();
 			if(present)
 			specialVacationSelector.selectByVisibleText(special);
+	}
+	
+	public void clickOnSaveButton() {
+		saveButton.click();
+		waitABit(5000);
 	}
 }
