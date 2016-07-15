@@ -23,7 +23,7 @@ public class MyRequestsTest {
 	@Steps MyRequestsSteps myRequestsSteps;
 	
 	private String itemtoClick = "VACATION";
-	private String username = "attila.marton";
+	private String username = "paula.klein";
 	private String password = "test";
 	
 //	@Test
@@ -44,9 +44,15 @@ public class MyRequestsTest {
 //		myRequestsSteps.selectDaysNumberFilterValue("1 - 5", "21 - 50");
 // 		"Pending", "Approved", "Rejected", "Withdrawn", "Cancelled"
 //		myRequestsSteps.vacationStatusFilterValue("Pending", "Approved", "Rejected", "Withdrawn", "Cancelled");
-		myRequestsSteps.clickFutureVacation();
-		myRequestsSteps.applyFilters();
+//		myRequestsSteps.clickFutureVacation();
+//		myRequestsSteps.applyFilters();
 //		"Start Date" "End Date" "Days Number" "Type" "Last Updated By" "Status" / "asc" or "desc" mode
-		myRequestsSteps.vacationTableFilterValue("Start Date","desc");
+//		myRequestsSteps.vacationTableFilterValue("Start Date","asc");
+		
+		
+		myRequestsSteps.clickOnHeader("Days");
+		myRequestsSteps.grabRequestList();
+		myRequestsSteps.clickOnNextPage();
+		System.out.println(myRequestsSteps.grabRequestList().toString());
 	}
 }
