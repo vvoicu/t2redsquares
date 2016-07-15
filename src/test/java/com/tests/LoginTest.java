@@ -6,11 +6,12 @@ import org.openqa.selenium.WebDriver;
 
 import com.selenium.steps.LoginSteps;
 
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 
-@RunWith(SerenityRunner.class)
+@RunWith(SerenityParameterizedRunner.class)
 public class LoginTest {
 
 	@Managed(uniqueSession = true)
@@ -22,6 +23,7 @@ public class LoginTest {
 	private String password = "test";
 	
 	@Test
+	
 	public void loginTest() {
 		/*loginSteps.open_login_page();
 		loginSteps.load_signin_page();
