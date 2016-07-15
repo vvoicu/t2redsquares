@@ -1,0 +1,5 @@
+username,password,typeFilter,daysFilter,statusFilter
+attila.marton,test,holiday,6 - 10,Rejected
+paula.klein,test,sick leave,21 - 50,cancelled
+marian.mihai,test,maternity leave,51 +,withdrawn
+malu.ioan2,evoportal,vacation without payment,1 - 5,approved
