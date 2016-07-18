@@ -125,6 +125,7 @@ public class MyRequestsPage extends PageObject {
 						break;
 					} else {
 						clickOnHeaderElement(filterValue);
+						waitABit(2000);
 						clickOnHeaderElement(filterValue);
 					}
 				}
