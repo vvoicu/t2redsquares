@@ -7,12 +7,15 @@ import org.openqa.selenium.WebDriver;
 import com.selenium.steps.LoginSteps;
 import com.selenium.steps.NavigationSteps;
 import com.selenium.steps.NewVacationRequestSteps;
+import com.tools.models.Constants;
 
-import net.serenitybdd.junit.runners.SerenityRunner;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 
-@RunWith(SerenityRunner.class)
+@RunWith(SerenityParameterizedRunner.class)
+@UseTestDataFrom(value = Constants.CSV_FILE_PATH + "Test00_NewVacationRequest.csv")
 
 public class NewVacationRequestTest  {
 	
@@ -27,13 +30,19 @@ public class NewVacationRequestTest  {
 	NavigationSteps navigationSteps;
 	
 	private String itemtoSearch = "VACATION";
-	private String username = "marian.mihai";
-	private String password = "test";
-	private String myMonth = "Jul";
-	private String myYear = "2016";
-	private String myStartDay = "18";
-	private String myEndDay = "19";
-	private String myVacationType = "Holiday";
+	
+	private String username;
+	private String password;
+	
+	private String startMonth;
+	private String startYear;
+	private String StartDay;
+	private String EndDay;
+	private String endMonth;
+	private String endYear;
+	
+	private String VacationType;
+	private String SpecialVacationType;
 
 	
 	@Test
@@ -41,12 +50,12 @@ public class NewVacationRequestTest  {
 		loginSteps.perform_login(username, password);
 		navigationSteps.clickMenuItem(itemtoSearch);
 		newVacationRequestSteps.clickOnNewVacationRequest();
-//		newVacationRequestSteps.clickOnStartDate();
-//		newVacationRequestSteps.selectDate(myYear, myMonth, myStartDay);
-//		newVacationRequestSteps.clickOnEndDate();
-//		newVacationRequestSteps.selectDate(myYear, myMonth, myEndDay);
-		newVacationRequestSteps.selectVacationType(myVacationType);
-		newVacationRequestSteps.selectSpecial("Funeral");
+		newVacationRequestSteps.clickOnStartDate();
+		newVacationRequestSteps.selectDate(startYear, startMonth, StartDay);
+		newVacationRequestSteps.clickOnEndDate();
+		newVacationRequestSteps.selectDate(endYear, endMonth, EndDay);
+		newVacationRequestSteps.selectVacationType(VacationType);
+		newVacationRequestSteps.selectSpecial(SpecialVacationType);
 		newVacationRequestSteps.clickOnSaveButton();
 		
 	}

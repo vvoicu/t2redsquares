@@ -34,6 +34,8 @@ public class FreeDaysHistoryPage extends PageObject{
 	@FindBy(css = "input[type='button'])")
 	private WebElementFacade applyButton;
 	
+	@FindBy(css="div[class='lfr-search-container ']")
+	private WebElement tableContainer;
 	
 	public void freeDaysHistoryOptionSelection(){
 		freeDaysHistoryOption.click();
@@ -90,4 +92,9 @@ public class FreeDaysHistoryPage extends PageObject{
 	public void applyFilters(){
 		applyButton.click();
 	}
+	
+//	public void verifyFilterSelection(String filter){
+//		List<WebElement> element = tableContainer.findElements(By.cssSelector(selector))
+//		
+//	}
 }
