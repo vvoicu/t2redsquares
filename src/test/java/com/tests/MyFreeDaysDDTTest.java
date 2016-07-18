@@ -33,7 +33,7 @@ public class MyFreeDaysDDTTest {
 
 	@Test
 	public void myFreeDaysTest() {
-		loginSteps.perform_login(username, password);
+		loginSteps.performLogin(username, password);
 		navigationSteps.clickMenuItem(itemtoSearch);
 		myFreeDaysSteps.selectMyFreeDaysOption();
 		// myFreeDaysSteps.verifyMyFreeDaysPageIsLoaded();
