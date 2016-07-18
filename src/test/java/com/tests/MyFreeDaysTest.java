@@ -13,7 +13,7 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 
 @RunWith(SerenityRunner.class)
-public class MyFreeDaysTest {
+public class MyFreeDaysTest extends BaseTest{
 	
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -22,8 +22,8 @@ public class MyFreeDaysTest {
 	@Steps NavigationSteps navigationSteps;
 	@Steps MyFreeDaysSteps myFreeDaysSteps;
 	
-	private String username = "attila.marton";
-	private String password = "test";
+//	private String username = "attila.marton";
+//	private String password = "test";
 	private String itemtoSearch = "VACATION";
 	
 	@Test
