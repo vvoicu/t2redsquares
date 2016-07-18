@@ -28,9 +28,6 @@ public class LoginTest extends BaseTest {
 //	private String username = "attila.marton";
 //	private String password = "test";
 
-	private String username;
-	private String password;
-
 	
 	@Test
 	public void loginTest() {
