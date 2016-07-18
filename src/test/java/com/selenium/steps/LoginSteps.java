@@ -36,7 +36,7 @@ public class LoginSteps extends ScenarioSteps {
 	} */
 	
 	@Step
-	public void perform_login(String username, String password){
+	public void performLogin(String username, String password){
 		loginPage.open();
 		loginPage.loadSigninPage();
 		loginPage.enterUsername(username);
@@ -45,7 +45,7 @@ public class LoginSteps extends ScenarioSteps {
 	}
 	
 	@Step
-	public void verify_login() {
+	public void verifyLogin() {
 		loginPage.verifyLogin();
 	}
 }

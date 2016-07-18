@@ -32,7 +32,7 @@ public class LoginDDTTest extends TestCase {
 		loginSteps.enter_username(username);
 		loginSteps.enter_password(password);
 		loginSteps.click_signin_button();*/
-		loginSteps.perform_login(username, password);
-		loginSteps.verify_login();
+		loginSteps.performLogin(username, password);
+		loginSteps.verifyLogin();
 	}
 }

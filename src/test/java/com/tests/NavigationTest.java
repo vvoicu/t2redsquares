@@ -26,7 +26,7 @@ public class NavigationTest {
 	
 	@Test
 	public void navigation(){
-		loginSteps.perform_login(username, password);
+		loginSteps.performLogin(username, password);
 		/*loginSteps.open_login_page();
 		loginSteps.load_signin_page();
 		loginSteps.enter_username(username);

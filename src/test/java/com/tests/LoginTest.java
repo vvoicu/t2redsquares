@@ -29,7 +29,7 @@ public class LoginTest extends BaseTest {
 
 	@Test
 	public void loginTest() {
-		loginSteps.perform_login(username, password);
-		loginSteps.verify_login();
+		loginSteps.performLogin(username, password);
+		loginSteps.verifyLogin();
 	}
 }
