@@ -47,7 +47,7 @@ public class NewVacationRequestTest  {
 	
 	@Test
 	public void clickOnNewVacationRequestTest(){
-		loginSteps.perform_login(username, password);
+		loginSteps.performLogin(username, password);
 		navigationSteps.clickMenuItem(itemtoSearch);
 		newVacationRequestSteps.clickOnNewVacationRequest();
 		newVacationRequestSteps.clickOnStartDate();

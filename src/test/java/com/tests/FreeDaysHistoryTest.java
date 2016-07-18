@@ -28,7 +28,7 @@ public class FreeDaysHistoryTest {
 	
 	@Test
 	public void freeDaysHistoryTest(){
-		loginSteps.perform_login(username, password);
+		loginSteps.performLogin(username, password);
 		navigationSteps.clickMenuItem(itemtoSearch);
 		freeDaysHistorySteps.selectFreeDaysHistoryOption();
 		freeDaysHistorySteps.loadFreeDaysHistoryPage();	

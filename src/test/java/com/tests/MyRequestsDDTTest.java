@@ -32,7 +32,7 @@ public class MyRequestsDDTTest extends TestCase {
 	@Test
 	@Title ("Test01 - MyRequests")
 	public void myRequestHolidayTest() {
-		loginSteps.perform_login(username, password);
+		loginSteps.performLogin(username, password);
 		navigationSteps.clickMenuItem("VACATION");
 		myRequestsSteps.clickMyRequests();
 // 		"Holiday", "Vacation without payment", "special vacation", "sick leave", "maternity leave"
