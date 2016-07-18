@@ -10,16 +10,22 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 
+//@RunWith(SerenityParameterizedRunner.class)
+//@UseTestDataFrom(value = Constants.CSV_FILE_PATH + "Test00_LogIn.csv")
+
 @RunWith(SerenityRunner.class)
-public class LoginTest{
-
+public class LoginTest extends BaseTest {
+	
 	@Managed(uniqueSession = true)
-	WebDriver webdriver;
-
+	public WebDriver webdriver;
+	
 	@Steps LoginSteps loginSteps;
 
 //	private String username = "attila.marton";
 //	private String password = "test";
+
+//	private String username;
+//	private String password;
 
 	@Test
 	public void loginTest() {
