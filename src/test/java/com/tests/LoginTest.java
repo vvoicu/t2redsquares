@@ -7,20 +7,21 @@ import org.openqa.selenium.WebDriver;
 import com.selenium.steps.LoginSteps;
 
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
+import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 
-@RunWith(SerenityParameterizedRunner.class)
+@RunWith(SerenityRunner.class)
 //@UseTestDataFrom(value = Constans.CSV_FILE_PATH +"Test00_LogIn.csv")
-public class LoginTest {
+public class LoginTest extends BaseTest{
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 	
 	@Steps LoginSteps loginSteps;
 	
-	private String username = "attila.marton";
-	private String password = "test";
+//	private String username = "attila.marton";
+//	private String password = "test";
 	
 	@Test
 	
