@@ -18,7 +18,7 @@ public class MailListingTest {
 //	true = shows read mails; false = shows unread mails
 	boolean read=false;
 //  tickOption = tick => ticks mails as read
-	private String tickOption="  ";
+	private String tickOption="tick";
 	
 	@Steps MailListingSteps mailListingSteps;
 	

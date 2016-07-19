@@ -22,10 +22,10 @@ public class MailListingPage  {
 
 			properties.put("mail.imaps.host", host);
 			properties.put("mail.imaps.port", "993");
-			properties.put("mail.store.protocol", host);
+			properties.put("mail.store.protocol", "imaps");
 			Session emailSession = Session.getDefaultInstance(properties);
 
-			Store store = emailSession.getStore(host);
+			Store store = emailSession.getStore("imaps");
 			store.connect(host, user, password);
 
 			Folder emailFolder = store.getFolder("INBOX");
