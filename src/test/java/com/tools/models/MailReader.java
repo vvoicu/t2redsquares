@@ -26,13 +26,14 @@ public class MailReader {
 			Session emailSession = Session.getDefaultInstance(properties);
 
 			Store store = emailSession.getStore("imaps");
-
 			store.connect(host, user, password);
 
 			Folder emailFolder = store.getFolder("INBOX");
-			emailFolder.open(Folder.READ_WRITE);
+//			READ_ONLY = doar citire ; READ_WRITE = citire + bifare seen
+			emailFolder.open(Folder.READ_WRITE); 
 			
 			Flags seen = new Flags(Flags.Flag.SEEN);
+//			true = afiseaza seen; false = afiseaza unread
 		    FlagTerm unseenFlagTerm = new FlagTerm(seen, false);
 
 			Message[] messages = emailFolder.search(unseenFlagTerm);
