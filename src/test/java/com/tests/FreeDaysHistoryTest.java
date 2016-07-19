@@ -25,6 +25,7 @@ public class FreeDaysHistoryTest {
 	private String username = "attila.marton";
 	private String password = "test";
 	private String itemtoSearch = "VACATION";
+	private String number = "1 - 5";
 	
 	@Test
 	public void freeDaysHistoryTest(){
@@ -32,5 +33,7 @@ public class FreeDaysHistoryTest {
 		navigationSteps.clickMenuItem(itemtoSearch);
 		freeDaysHistorySteps.selectFreeDaysHistoryOption();
 		freeDaysHistorySteps.loadFreeDaysHistoryPage();	
+		freeDaysHistorySteps.selectPaginatorType("75");	
+		freeDaysHistorySteps.verifyByNumber(number,1,9);
 	}
 }
