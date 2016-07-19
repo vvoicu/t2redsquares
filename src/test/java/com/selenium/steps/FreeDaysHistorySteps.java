@@ -41,4 +41,14 @@ public class FreeDaysHistorySteps extends ScenarioSteps {
 		freeDaysHistoryPage.applyFilters();
 	}
 	
+	@Step
+	public void selectPaginatorType(String  type){
+		freeDaysHistoryPage.selectPaginatorType(type);
+
+	}
+	
+	@Step
+	public void verifyByNumber(String number,int a, int b){
+		freeDaysHistoryPage.verifyByNumber(number,a,b);
+	}
 }
