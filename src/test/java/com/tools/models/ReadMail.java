@@ -3,11 +3,13 @@ package com.tools.models;
 import java.util.Properties;
 
 import javax.mail.BodyPart;
+import javax.mail.Flags;
 import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.internet.MimeMultipart;
+import javax.mail.search.FlagTerm;
 
 public class ReadMail {
 	
@@ -22,16 +24,21 @@ public class ReadMail {
             
             Folder inbox = store.getFolder("INBOX");
             inbox.open(Folder.READ_ONLY);
+              
+         // search for all "unseen" messages     
+            Flags seen = new Flags(Flags.Flag.SEEN);
+            FlagTerm unseenFlagTerm = new FlagTerm(seen, false);
             
-//          Message messages[] = inbox.search(new FlagTerm(new Flags(Flags.Flag.SEEN), false));
-            System.out.println("No. of Messages : " + inbox.getMessages().length);
+            Message messages[] = inbox.search(unseenFlagTerm);
+            if (messages.length == 0){
+            	System.out.println("No unread messages.");
+            }
+            	else{ 
+            		System.out.println("No. of Unread Messages : " + messages.length);
+            	}
             
-            Message messages[] = inbox.getMessages();
             for (int i = 0; i < messages.length ; i++){
             	System.out.println("=============================");
-
-//            	Multipart mp = (Multipart) msg.getContent();
-//            	BodyPart bp = mp.getBodyPart(0);
             	
             	System.out.println("FROM:" + messages[i].getFrom()[0]);
             	System.out.println("SENT DATE:" + messages[i].getSentDate());
