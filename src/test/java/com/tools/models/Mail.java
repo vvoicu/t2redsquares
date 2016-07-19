@@ -11,7 +11,8 @@ import javax.mail.Store;
 
 public class Mail {
 
-	public static void main(String[] args) {
+	public String veryfyMail(String subject) {
+		String resultString = "";
 		Properties props = new Properties();
 		props.setProperty("mail.store.protocol", "imaps");
 		props.setProperty("mail.imaps.port", "993");
@@ -26,26 +27,21 @@ public class Mail {
 			System.out.println("messages.length---" + msgs.length);
 
 			for (Message msg : msgs) {
-				if (msg.getContentType().contains("multipart")) {
-					Multipart mp = (Multipart) msg.getContent();
-					BodyPart bp = mp.getBodyPart(0);
+				if (msg.getSubject().contains(subject))
+					if (msg.getContentType().contains("multipart")) {
+						Multipart mp = (Multipart) msg.getContent();
+						BodyPart bp = mp.getBodyPart(0);
 
-					System.out.println("===============================================================");
+						resultString = String.valueOf(bp.getContent());
+					} else {
+						resultString = String.valueOf(msg.getContent());
 
-					System.out.println("FROM:" + msg.getFrom()[0]);
-					System.out.println("SENT DATE:" + msg.getSentDate());
-					System.out.println("SUBJECT:" + msg.getSubject());
-					System.out.println("CONTENT:" + bp.getContent());
-				} else {
-					System.out.println("FROM:" + msg.getFrom()[0]);
-					System.out.println("SENT DATE:" + msg.getSentDate());
-					System.out.println("SUBJECT:" + msg.getSubject());
-					System.out.println("CONTENT:" + msg.getContent());
-
-				}
+					}
 			}
 		} catch (Exception mex) {
 			mex.printStackTrace();
 		}
+
+		return resultString;
 	}
 }

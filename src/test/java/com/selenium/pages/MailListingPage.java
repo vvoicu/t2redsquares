@@ -1,4 +1,4 @@
-package com.tools.models;
+package com.selenium.pages;
 
 import java.util.Properties;
 
@@ -13,9 +13,9 @@ import javax.mail.Store;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.search.FlagTerm;
 
-public class MailReader {
-
-	public void check(String host, String storeType, String user, String password) {
+public class MailListingPage  {
+	
+	public void check(String host, String storeType, String user, String password, boolean read, String tickOption) {
 		try {
 
 			Properties properties = new Properties();
@@ -30,11 +30,16 @@ public class MailReader {
 
 			Folder emailFolder = store.getFolder("INBOX");
 //			READ_ONLY = only reads the inbox ; READ_WRITE = reads and ticks mails as seen
-			emailFolder.open(Folder.READ_WRITE); 
+			if(tickOption=="tick"){
+			emailFolder.open(Folder.READ_WRITE);
+			}
+			else {
+				emailFolder.open(Folder.READ_ONLY);
+			}
 			
 			Flags seen = new Flags(Flags.Flag.SEEN);
 //			true = shows read mails; false = shows unread mails
-		    FlagTerm unseenFlagTerm = new FlagTerm(seen, false);
+		    FlagTerm unseenFlagTerm = new FlagTerm(seen, read);
 
 			Message[] messages = emailFolder.search(unseenFlagTerm);
 			if(messages.length==0){
@@ -54,7 +59,6 @@ public class MailReader {
 				System.out.println("To: " + messages[i].getAllRecipients()[0]);
 				System.out.println("Sent Date: " + messages[i].getSentDate());
 				System.out.println("Subject: " + messages[i].getSubject());
-				System.out.println("Text: " + messages[i].getContent());
 				System.out.println("Text: " + getTextFromMessage(messages[i]));
 			}
 			emailFolder.close(false);
@@ -70,7 +74,7 @@ public class MailReader {
 
 	public String getTextFromMessage(Message message) throws Exception {
 		String result = "";
-		if (message.isMimeType("text/plain")) {
+		if (message.isMimeType("text/*")) {
 			result = message.getContent().toString();
 		} else if (message.isMimeType("multipart/*")) {
 			MimeMultipart mimeMultipart = (MimeMultipart) message.getContent();
@@ -95,15 +99,5 @@ public class MailReader {
 			}
 		}
 		return result;
-	}
-
-	public static void main(String[] args) {
-		MailReader mr = new MailReader();
-		String host = "mail.evozon.com";
-		String mailStoreType = "imaps";
-		String username = "attila.marton@evozon.com";
-		String password = "Shippuuden9.";
-
-		mr.check(host, mailStoreType, username, password);
 	}
 }

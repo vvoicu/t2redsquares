@@ -106,9 +106,7 @@ public class NewVacationRequestPage extends PageObject {
 		boolean present = specialVacationSelector.isEnabled();
 			if(present)
 			specialVacationSelector.selectByVisibleText(special);
-			else{
-				Assert.assertTrue("Special vacation not found", present);
-			}
+			
 	}
 	
 	public void clickOnSaveButton() {
