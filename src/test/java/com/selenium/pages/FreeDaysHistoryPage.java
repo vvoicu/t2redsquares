@@ -98,6 +98,22 @@ public class FreeDaysHistoryPage extends PageObject {
 		applyButton.click();
 	}
 
+	public void selectPaginatorType(String type) {
+		paginatorDropDown.waitUntilVisible();
+		paginatorDropDown.selectByVisibleText(type);
+	}
+	
+//	public void verifyByType(String vacationType){
+//		boolean found=true;
+//		List<WebElement> elements = tableContainer.findElements(By.cssSelector("td[class*='align-left col-2']"));
+//		for(WebElement webElement:elements){
+//			if(!webElement.getText().contains(vacationType)){
+//				found=false;
+//			}
+//		}
+//		Assert.assertTrue("Vacation type is not displayed correctly", found);
+//	}
+	
 	public void verifyByNumber(String number, int a, int b){
 		boolean found=true;
 		List<WebElement> elements = tableContainer.findElements(By.cssSelector("td[class*='align-left col-3']"));
@@ -109,10 +125,4 @@ public class FreeDaysHistoryPage extends PageObject {
 			}
 		Assert.assertTrue("Vacation days are not displayed correctly", found);
 		}
-
-	public void selectPaginatorType(String type) {
-		paginatorDropDown.waitUntilVisible();
-		paginatorDropDown.selectByVisibleText(type);
-
-	}
 }
