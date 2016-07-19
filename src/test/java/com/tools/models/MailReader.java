@@ -3,6 +3,7 @@ package com.tools.models;
 import java.util.Properties;
 
 import javax.mail.BodyPart;
+import javax.mail.Flags;
 import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -10,6 +11,7 @@ import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.internet.MimeMultipart;
+import javax.mail.search.FlagTerm;
 
 public class MailReader {
 
@@ -28,28 +30,34 @@ public class MailReader {
 			store.connect(host, user, password);
 
 			Folder emailFolder = store.getFolder("INBOX");
-			emailFolder.open(Folder.READ_ONLY);
+			emailFolder.open(Folder.READ_WRITE);
+			
+			Flags seen = new Flags(Flags.Flag.SEEN);
+		    FlagTerm unseenFlagTerm = new FlagTerm(seen, false);
 
-			Message[] messages = emailFolder.getMessages();
-			System.out.println("messages.length---" + messages.length);
-
+			Message[] messages = emailFolder.search(unseenFlagTerm);
+			if(messages.length==0){
+				System.out.println("No unread messages!");
+			}
+			else{
+			System.out.println("Number of unread messages: " + messages.length);
+			}
+			
 			for (int i = 0; i < messages.length; i++) {
 				System.out.println("<><><><><><><><><><><><><><><><><><><><><><>");
 
-//				Multipart mp = (Multipart) messages[i].getContent();
-//				BodyPart bp = mp.getBodyPart(0);
+				// Multipart mp = (Multipart) messages[i].getContent();
+				// BodyPart bp = mp.getBodyPart(0);
 
 				System.out.println("From: " + messages[i].getFrom()[0]);
 				System.out.println("To: " + messages[i].getAllRecipients()[0]);
 				System.out.println("Sent Date: " + messages[i].getSentDate());
 				System.out.println("Subject: " + messages[i].getSubject());
+				System.out.println("Text: " + messages[i].getContent());
 				System.out.println("Text: " + getTextFromMessage(messages[i]));
-
 			}
-
 			emailFolder.close(false);
 			store.close();
-
 		} catch (NoSuchProviderException e) {
 			e.printStackTrace();
 		} catch (MessagingException e) {
@@ -93,7 +101,7 @@ public class MailReader {
 		String host = "mail.evozon.com";
 		String mailStoreType = "imaps";
 		String username = "attila.marton@evozon.com";
-		String password = "********";
+		String password = "Shippuuden9.";
 
 		mr.check(host, mailStoreType, username, password);
 	}
