@@ -93,7 +93,7 @@ public class MailReader {
 		String host = "mail.evozon.com";
 		String mailStoreType = "imaps";
 		String username = "attila.marton@evozon.com";
-		String password = "Shippuuden9.";
+		String password = "********";
 
 		mr.check(host, mailStoreType, username, password);
 	}
