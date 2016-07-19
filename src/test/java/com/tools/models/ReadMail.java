@@ -26,18 +26,32 @@ public class ReadMail {
             inbox.open(Folder.READ_ONLY);
               
          // search for all "unseen" messages     
-            Flags seen = new Flags(Flags.Flag.SEEN);
-            FlagTerm unseenFlagTerm = new FlagTerm(seen, false);
-            
-            Message messages[] = inbox.search(unseenFlagTerm);
-            if (messages.length == 0){
-            	System.out.println("No unread messages.");
-            }
-            	else{ 
-            		System.out.println("No. of Unread Messages : " + messages.length);
-            	}
-            
-            for (int i = 0; i < messages.length ; i++){
+//            Flags seen = new Flags(Flags.Flag.SEEN);
+//            FlagTerm unseenFlagTerm = new FlagTerm(seen, false);
+//            
+//            Message messages[] = inbox.search(unseenFlagTerm);
+//            if (messages.length == 0){
+//            	System.out.println("No unread messages.");
+//            }
+//            	else{ 
+//            		System.out.println("No. of Unread Messages : " + messages.length);
+//            	}
+//            
+//            for(Message message:messages){
+//            	if (message.getSubject().contains())
+//            	     if (message.getContentType().contains("multipart")) {
+//            	      Multipart mp = (Multipart) msg.getContent();
+//            	      BodyPart bp = mp.getBodyPart(0);
+//
+//            	      resultString = String.valueOf(bp.getContent());
+//            	     } else {
+//            	      resultString = String.valueOf(message.getContent());
+//            }
+//            
+            //last email from inbox
+            Message messages[] =inbox.getMessages();
+//            boolean mailFound=false;
+            for (int i = messages.length-1; i>messages.length-2; i--){
             	System.out.println("=============================");
             	
             	System.out.println("FROM:" + messages[i].getFrom()[0]);
@@ -45,7 +59,10 @@ public class ReadMail {
             	System.out.println("SUBJECT:" + messages[i].getSubject());
             	System.out.println("CONTENT2:" + messages[i].getContentType());
             	System.out.println("CONTENT:" + getTextFromMessage(messages[i]));
+            	
+            
             }
+
         } catch (Exception mex) {
             mex.printStackTrace();
         }
