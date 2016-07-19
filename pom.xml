@@ -37,6 +37,7 @@
 	<!-- </pluginRepository> -->
 	<!-- </pluginRepositories> -->
 
+
 	<dependencies>
 		<dependency>
 			<groupId>net.serenity-bdd</groupId>
@@ -130,4 +131,5 @@
 			</plugin>
 		</plugins>
 	</build>
+
 </project>
